@@ -23,18 +23,22 @@ Here’s what you get out of the box with this starter kit:
 
 ### 3. Installation ⚡  
 Ready to dive in? Follow these steps to get started:  
-
-1️⃣ **Clone the repository**:  
+1️⃣ **Install gh cli** *(if you haven't already)*
 ```bash
-git clone https://github.com/AlexThyCoolest/react-native-npm-starter.git
+brew install gh
+```
+
+2️⃣ **Create a private repo**:  
+```bash
+gh repo create [YOUR APP NAME] --template AlexThyCoolest/react-native-npm-starter --private --clone
 ```  
 
-2️⃣ **Install dependencies**:  
+3️⃣ **Install dependencies**:  
 ```bash
 npm i
 ```  
 
-3️⃣ **Set up Supabase**:  
+4️⃣ **Set up Supabase**:  
 - 🌐 Head to [Supabase](https://supabase.io/) and create an account.  
 - 🔑 Create a new project and grab the URL + API keys.  
 - 🔐 Create a new table called `users` with the following columns:  
@@ -54,7 +58,7 @@ npm i
 
     ```
 
-4️⃣ **Configure Supabase**:  
+5️⃣ **Configure Supabase**:  
 Add these variables to a `.env` file in your project’s root:  
 ```bash
 EXPO_PUBLIC_SUPABASE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
@@ -63,14 +67,14 @@ EXPO_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_SERVICE_URL
 JWT_SECRET=YOUR_JWT_SECRET
 ```  
 
-5️⃣ **Set up Resend**:  
+6️⃣ **Set up Resend**:  
 - ✉️ Create an account at [Resend](https://resend.com).  
 - 🔑 Grab your API key and add it to the `.env` file:  
 ```bash
 EXPO_PUBLIC_RESEND_API_KEY=YOUR_RESEND_API_KEY
 ```  
 
-6️⃣ **Run the app**:  
+7️⃣ **Run the app**:  
 ```bash
 npm run ios
 ```
