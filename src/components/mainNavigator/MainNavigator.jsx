@@ -8,6 +8,7 @@ import HomeScreen from "@screens/HomeScreen";
 import VerificationScreen from "@screens/VerificationScreen";
 import ChangePasswordScreen from "@screens/ChangePasswordScreen";
 import ButtonExamples from "@screens/ButtonExamples";
+import OnboardingScreen from "@screens/OnboardingScreen";
 import supabase from "@config/supabase";
 
 
@@ -53,6 +54,7 @@ const MainNavigator = () => {
         ) : (
           <>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
+            <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
             <Stack.Screen name="SignInScreen" component={SignInScreen} />
             <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           </>
