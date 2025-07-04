@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FormData } from "../Types/types";
+import { FormData } from "../types/types";
 
 export const useFormValidation = () => {
     const [isFormValid, setIsFormValid] = useState(false);

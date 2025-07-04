@@ -95,8 +95,13 @@ We ❤️ contributions! Follow these steps to get involved:
 4️⃣ Make your changes ✍️  
 5️⃣ Commit your changes 📦  
 6️⃣ Push your branch 🚢  
-7️⃣ Open a pull request 🚀  
-8️⃣ Wait for review and merge! 🎉  
+7️⃣ Open a pull request 🚀
+8️⃣ Wait for review and merge! 🎉
+
+### Folder Naming Conventions 📁
+All directories in this project use **camelCase**. Single-word names like `assets`
+stay lowercase, while multi-word names follow lower camel case (e.g.,
+`mainNavigator`).
 
 ---
 

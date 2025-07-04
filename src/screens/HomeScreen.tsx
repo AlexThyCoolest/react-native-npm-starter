@@ -1,4 +1,4 @@
-import Button from '@components/Buttons/Button';
+import Button from '@components/buttons/Button';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';

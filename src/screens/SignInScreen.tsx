@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
 import { set, useForm } from 'react-hook-form';
-import CustomForm from '../Components/Forms/FormInput';
-import { FormData, FormField } from '../Types/types';
+import CustomForm from '../components/forms/FormInput';
+import { FormData, FormField } from '../types/types';
 import supabase from '@config/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
