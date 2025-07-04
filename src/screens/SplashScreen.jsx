@@ -11,9 +11,12 @@ const SplashScreen = ({ navigation }) => {
           if (error) {
             throw error;
           }
+          const hasOnboarded = await AsyncStorage.getItem('hasOnboarded');
           if (session?.user) {
             await AsyncStorage.setItem('userUuid', session.user.id);
             navigation.replace('HomeScreen');
+          } else if (!hasOnboarded) {
+            navigation.replace('OnboardingScreen');
           } else {
             navigation.replace('SignInScreen');
           }
