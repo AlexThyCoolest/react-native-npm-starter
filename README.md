@@ -85,7 +85,7 @@ export default {
     ...
 ```
 
-7️⃣ **Run the app**:  
+8️⃣ **Run the app**:  
 ```bash
 npm run ios
 ```
