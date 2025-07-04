@@ -2,8 +2,8 @@ import 'dotenv/config';
 
 export default {
   expo: {
-    name: "supabase-starter-template",
-    slug: "supabase-starter-template",
+    name: "YOUR NAME HERE",
+    slug: "YOUR SLUG HERE",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
