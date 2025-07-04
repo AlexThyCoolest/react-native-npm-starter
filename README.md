@@ -26,12 +26,12 @@ Ready to dive in? Follow these steps to get started:
 
 1️⃣ **Clone the repository**:  
 ```bash
-git clone https://github.com/Jaseyacey/react-native-supa-starter.git
+git clone https://github.com/AlexThyCoolest/react-native-npm-starter.git
 ```  
 
 2️⃣ **Install dependencies**:  
 ```bash
-yarn install
+npm i
 ```  
 
 3️⃣ **Set up Supabase**:  
@@ -40,7 +40,19 @@ yarn install
 - 🔐 Create a new table called `users` with the following columns:  
   - `user_uuid` (UUID)  
   - `user_email` (TEXT)  
-  - `created_at` (TIMESTAMP)  
+  - `created_at` (TIMESTAMP)
+
+    - or use the SQL Editor:
+    
+    ```sql
+    CREATE TABLE user (
+      user_uuid UUID PRIMARY KEY,
+      user_email TEXT,
+      created_at TIMESTAMP
+      -- add more if needed
+    );
+
+    ```
 
 4️⃣ **Configure Supabase**:  
 Add these variables to a `.env` file in your project’s root:  
@@ -60,8 +72,12 @@ EXPO_PUBLIC_RESEND_API_KEY=YOUR_RESEND_API_KEY
 
 6️⃣ **Run the app**:  
 ```bash
-yarn start
-```  
+npm run ios
+```
+or
+```bash
+npm run android
+```
 
 🎉 Boom! Your app is live!  
 
@@ -110,8 +126,11 @@ Big shoutout to these awesome tools that make this starter kit possible:
 
 ---
 
-### 8. Contact 📬  
+### Contact with original cerator 📬  
 Got questions or feedback? Let’s chat! 💬  
 📧 **Email**: [Jason Beedle](mailto:jbeedle@gmail.com)  
+
+### Contact with me
+📧 **Email**: [Alex Agboola](mailto:alexagboolacodes@gmail.com)  
 
 --- 
