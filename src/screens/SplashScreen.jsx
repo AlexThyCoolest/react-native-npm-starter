@@ -5,7 +5,6 @@ import supabase from '@config/supabase';
 const SplashScreen = ({ navigation }) => {
     
     const checkUser = async () => {
-        console.log('SplashScreen');
         try {
           const { data: { session }, error } = await supabase.auth.getSession();
           if (error) {
@@ -22,7 +21,7 @@ const SplashScreen = ({ navigation }) => {
           }
         } catch (error) {
           console.error('Error checking user session:', error);
-          navigation.replace('signUpScreen');
+          navigation.replace('SignUpScreen');
         }
       };
       
