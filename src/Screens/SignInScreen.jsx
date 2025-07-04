@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import CustomForm from '../Components/Forms/FormInput';
-import { FormData, FormField } from '../Types/types';
 import supabase from '@config/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignInScreen = ({ navigation }) => {
-  const { control, handleSubmit, watch } = useForm<FormData>({
+  const { control, handleSubmit, watch } = useForm({
     mode: 'onChange',
     defaultValues: {
       email: '',
@@ -16,7 +15,7 @@ const SignInScreen = ({ navigation }) => {
   });
   
   const [loading, setLoading] = useState(false);
-  const sendDataToSupabase = async (data: FormData) => {
+  const sendDataToSupabase = async (data) => {
     setLoading(true);
     const { email, password } = data;
     const { error } = await supabase.auth.signInWithPassword({
@@ -34,7 +33,7 @@ const SignInScreen = ({ navigation }) => {
     }
   };
 
-  const formFields: FormField[] = [
+  const formFields = [
     {
       name: 'email',
       label: 'Email',

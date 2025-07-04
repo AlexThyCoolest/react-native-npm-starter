@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import { Alert, SafeAreaView, Text } from "react-native";
 import CustomForm from '../Components/Forms/FormInput';
-import { ForgotPasswordForm, FormField } from '../Types/types';
+
 import { useForm } from 'react-hook-form';
 import supabase from "@config/supabase";
 
 const ChangePassword = ({navigation}) => {
-      const { control, handleSubmit, watch, formState: { isValid, isDirty } } = useForm<ForgotPasswordForm>({
+      const { control, handleSubmit, watch, formState: { isValid, isDirty } } = useForm({
         mode: 'onChange',
         defaultValues: {
           email: '',
@@ -16,7 +16,7 @@ const ChangePassword = ({navigation}) => {
         }
       });
       
-      const newPasswordMatchesOldPassword = async (data: ForgotPasswordForm) => {
+      const newPasswordMatchesOldPassword = async (data) => {
         const { email, currentPassword, newPassword } = data;
         setLoading(true)
         const { error: signInError } = await supabase.auth.signInWithPassword({
@@ -35,7 +35,7 @@ const ChangePassword = ({navigation}) => {
         changePassword(data)
         return passwordMatches;
       };
-      const changePassword = async (data: ForgotPasswordForm) => {
+      const changePassword = async (data) => {
         setLoading(true);
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email: data.email,
@@ -64,7 +64,7 @@ const ChangePassword = ({navigation}) => {
       
     const [loading, setLoading] = useState(false);
 
-    const formFields: FormField[] = [
+    const formFields = [
       {
         name: 'email',
         label: 'Email',

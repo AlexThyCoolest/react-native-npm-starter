@@ -2,7 +2,6 @@ import Button from '@components/Buttons/Button';
 import React, { useState } from 'react';
 import { SafeAreaView, Text, View, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-//@ts-ignore
 import { MaterialIcons } from 'react-native-vector-icons';
 
 const ButtonExamples = ({navigation}) => {
