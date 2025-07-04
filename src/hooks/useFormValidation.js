@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { FormData } from "../types/types";
 
 export const useFormValidation = () => {
     const [isFormValid, setIsFormValid] = useState(false);
-    const [formValues, setFormValues] = useState<FormData | null>(null);
+    const [formValues, setFormValues] = useState(null);
 
     useEffect(() => {
         if (formValues) {

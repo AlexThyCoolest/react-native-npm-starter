@@ -4,25 +4,10 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
-  TouchableOpacityProps,
-  TextStyle,
-  ViewStyle,
   ActivityIndicator
 } from 'react-native';
 
-interface ButtonProps extends TouchableOpacityProps {
-  title: string;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'small' | 'medium' | 'large';
-  isLoading?: boolean;
-  disabled?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  containerStyle?: ViewStyle;
-  titleStyle?: TextStyle;
-}
-
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   title,
   variant = 'primary',
   size = 'medium',
@@ -35,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   onPress,
   ...restProps
 }) => {
-  const getVariantStyles = (): ViewStyle => {
+  const getVariantStyles = () => {
     if (disabled) {
       return styles.disabledButton;
     }
@@ -51,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
-  const getSizeStyles = (): ViewStyle => {
+  const getSizeStyles = () => {
     switch (size) {
       case 'small':
         return styles.smallButton;
@@ -64,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
-  const getTextColor = (): string => {
+  const getTextColor = () => {
     if (disabled) return '#FFFFFF';
     switch (variant) {
       case 'primary':
