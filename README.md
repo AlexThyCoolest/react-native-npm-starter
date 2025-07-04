@@ -30,7 +30,7 @@ brew install gh
 
 2️⃣ **Create a private repo**:  
 ```bash
-gh repo create [YOUR APP NAME] --template AlexThyCoolest/react-native-npm-starter --private --clone
+gh repo create [YOUR APP NAME] --template AlexThyCoolest/react-native-npm-starter --private --clone && cd [YOUR APP NAME]
 ```  
 
 3️⃣ **Install dependencies**:  
