@@ -1,4 +1,4 @@
-import Button from '@components/Buttons/Button';
+import Button from '@components/buttons/Button';
 import React, { useState } from 'react';
 import { SafeAreaView, Text, View, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';

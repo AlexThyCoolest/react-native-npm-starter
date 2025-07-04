@@ -3,16 +3,16 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "src/Components/*"
+        "src/components/*"
       ],
       "@hooks/*": [
-        "src/Hooks/*"
+        "src/hooks/*"
       ],
       "@screens/*": [
-        "src/Screens/*"
+        "src/screens/*"
       ],
       "@config/*": [
-        "src/Config/*"
+        "src/config/*"
       ]
     }
   },

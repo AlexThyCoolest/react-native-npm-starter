@@ -1,4 +1,4 @@
-import Button from '@components/Buttons/Button';
+import Button from '@components/buttons/Button';
 import supabase from '@config/supabase';
 import React, { useState } from 'react';
 import { Alert, SafeAreaView, Text, StyleSheet, TextInput, View } from 'react-native';

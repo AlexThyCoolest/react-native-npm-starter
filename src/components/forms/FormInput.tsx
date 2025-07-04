@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { useForm, Controller, Control } from 'react-hook-form';
-import Button from '@components/Buttons/Button';
+import Button from '@components/buttons/Button';
 
 interface FormField {
   name: string;
