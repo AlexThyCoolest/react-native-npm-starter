@@ -74,6 +74,17 @@ JWT_SECRET=YOUR_JWT_SECRET
 EXPO_PUBLIC_RESEND_API_KEY=YOUR_RESEND_API_KEY
 ```  
 
+7️⃣ **Change the name + slug**
+Change the name and slug in `app.config.json` to the name of your app
+```js
+...
+export default {
+  expo: {
+    name: "YOUR NAME HERE",
+    slug: "YOUR SLUG HERE",
+    ...
+```
+
 7️⃣ **Run the app**:  
 ```bash
 npm run ios
