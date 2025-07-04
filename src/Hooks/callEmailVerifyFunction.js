@@ -1,6 +1,6 @@
 import { Alert } from "react-native";
 
-export const callEmailVerifyFunction = async (email: string, handleSubmit: ((arg0: number) => void) | undefined) => {
+export const callEmailVerifyFunction = async (email, handleSubmit) => {
     const randomCode = Math.floor(1000 + Math.random() * 9000);
     try {
       const res = await fetch("https://api.resend.com/emails", {
@@ -24,8 +24,8 @@ export const callEmailVerifyFunction = async (email: string, handleSubmit: ((arg
       } else {
         Alert.alert("Error", data.message);
       }
-    } catch (error) {
-      Alert.alert((error as Error).message);
-    }
-  };
+  } catch (error) {
+    Alert.alert(error.message);
+  }
+};
   

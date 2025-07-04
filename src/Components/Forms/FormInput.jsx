@@ -1,32 +1,15 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { useForm, Controller, Control } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import Button from '@components/Buttons/Button';
 
-interface FormField {
-  name: string;
-  label: string;
-  placeholder?: string;
-  rules?: object;
-  secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
-}
-
-export interface CustomFormProps {
-  fields: FormField[];
-  control: Control<any>;
-  onSubmit: (data: any) => void;
-  submitButtonText?: string;
-  disabled?: boolean;
-}
-
-const CustomForm = ({ 
+const CustomForm = ({
   fields, 
   control, 
   onSubmit, 
   submitButtonText = 'Submit',
-  disabled = false 
-}: CustomFormProps) => {
+  disabled = false
+}) => {
   const isButtonDisabled = disabled;
 
   return (

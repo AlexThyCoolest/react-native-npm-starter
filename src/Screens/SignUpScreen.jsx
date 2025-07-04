@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import CustomForm from '../Components/Forms/FormInput';
-import { FormData, FormField } from '../Types/types';
 import supabase from '@config/supabase';
 import { callEmailVerifyFunction } from '@hooks/callEmailVerifyFunction';
 
 const SignUpScreen = ({ navigation }) => {
-  const { control, handleSubmit, watch } = useForm<FormData>({
+  const { control, handleSubmit, watch } = useForm({
     mode: 'onChange',
     defaultValues: {
       email: '',
@@ -29,7 +28,7 @@ const SignUpScreen = ({ navigation }) => {
     }
   }, [password, repeatPassword]);
 
-  const handleFormSubmit = async (data: FormData) => {
+  const handleFormSubmit = async (data) => {
     if (data.password !== data.repeatPassword) {
       setIsPasswordMatch(false);
       return;
@@ -54,7 +53,7 @@ const SignUpScreen = ({ navigation }) => {
     }
   };
 
-  const formFields: FormField[] = [
+  const formFields = [
     {
       name: 'email',
       label: 'Email',

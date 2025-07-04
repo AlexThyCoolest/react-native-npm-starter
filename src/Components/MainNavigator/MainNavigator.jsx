@@ -9,13 +9,12 @@ import VerificationScreen from "@screens/VerificationScreen";
 import ChangePasswordScreen from "@screens/ChangePasswordScreen";
 import ButtonExamples from "@screens/ButtonExamples";
 import supabase from "@config/supabase";
-import { Session } from "@supabase/supabase-js";
 
 
 const Stack = createStackNavigator();
 
 const MainNavigator = () => {
-  const [session, setSession] = useState<Session | null>(null);
+  const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
