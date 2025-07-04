@@ -5,21 +5,23 @@ import supabase from '@config/supabase';
 const SplashScreen = ({ navigation }) => {
     
     const checkUser = async () => {
-        console.log('SplashScreen');
         try {
           const { data: { session }, error } = await supabase.auth.getSession();
           if (error) {
             throw error;
           }
+          const hasOnboarded = await AsyncStorage.getItem('hasOnboarded');
           if (session?.user) {
             await AsyncStorage.setItem('userUuid', session.user.id);
             navigation.replace('HomeScreen');
+          } else if (!hasOnboarded) {
+            navigation.replace('OnboardingScreen');
           } else {
             navigation.replace('SignInScreen');
           }
         } catch (error) {
           console.error('Error checking user session:', error);
-          navigation.replace('signUpScreen');
+          navigation.replace('SignUpScreen');
         }
       };
       

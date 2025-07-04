@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
 import { useForm } from 'react-hook-form';
-import CustomForm from '../components/forms/FormInput';
+import CustomForm from '@components/forms/FormInput';
 import supabase from '@config/supabase';
 import { callEmailVerifyFunction } from '@hooks/callEmailVerifyFunction';
 
