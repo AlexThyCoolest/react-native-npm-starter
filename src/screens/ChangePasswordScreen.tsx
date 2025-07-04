@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Alert, SafeAreaView, Text } from "react-native";
-import CustomForm from '../Components/Forms/FormInput';
-import { ForgotPasswordForm, FormField } from '../Types/types';
+import CustomForm from '../components/forms/FormInput';
+import { ForgotPasswordForm, FormField } from '../types/types';
 import { useForm } from 'react-hook-form';
 import supabase from "@config/supabase";
 
