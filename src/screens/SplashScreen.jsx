@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import supabase from '@config/supabase';
-import { SplashScreenProps } from 'src/types/types';
-
-const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
+const SplashScreen = ({ navigation }) => {
     
     const checkUser = async () => {
         console.log('SplashScreen');

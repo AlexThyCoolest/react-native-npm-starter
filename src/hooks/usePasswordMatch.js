@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { FormData } from "../types/types";
 
 export const usePasswordMatch = () => {
     const [isPasswordMatch, setIsPasswordMatch] = useState(true);
 
-    const checkPasswordMatch = (data: FormData) => {
+    const checkPasswordMatch = (data) => {
         if (data.password !== data.repeatPassword) {
             setIsPasswordMatch(false);
         } else {
