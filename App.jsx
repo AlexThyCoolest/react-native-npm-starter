@@ -1,4 +1,4 @@
-import MainNavigator from '@components/mainnavigator/MainNavigator';
+import MainNavigator from '@components/mainNavigator/MainNavigator';
 
 export default function App() {
   return (
