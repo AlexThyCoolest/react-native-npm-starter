@@ -41,8 +41,8 @@ const SplashScreen = ({ navigation }) => {
 const styles = {
     container: {
         flex: 1,
-        justifyContent: 'center' as 'center',
-        alignItems: 'center' as 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 };
 
