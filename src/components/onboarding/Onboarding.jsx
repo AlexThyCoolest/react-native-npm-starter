@@ -17,7 +17,9 @@ const Onboarding = ({ children, onFinish }) => {
 
   const handleNext = () => {
     if (currentIndex < slides.length - 1) {
-      flatListRef.current?.scrollToIndex({ index: currentIndex + 1 });
+      const nextIndex = currentIndex + 1;
+      flatListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+      setCurrentIndex(nextIndex);
     } else if (onFinish) {
       onFinish();
     }
@@ -25,7 +27,9 @@ const Onboarding = ({ children, onFinish }) => {
 
   const handleBack = () => {
     if (currentIndex > 0) {
-      flatListRef.current?.scrollToIndex({ index: currentIndex - 1 });
+      const prevIndex = currentIndex - 1;
+      flatListRef.current?.scrollToIndex({ index: prevIndex, animated: true });
+      setCurrentIndex(prevIndex);
     }
   };
 
