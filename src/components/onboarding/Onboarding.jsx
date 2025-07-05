@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
-import Button from '@components/buttons/Button';
+import React, { useRef, useState } from "react";
+import { View, FlatList, StyleSheet, useWindowDimensions } from "react-native";
+import Button from "@components/buttons/Button";
 
 const Onboarding = ({ children, onFinish }) => {
+  const { width } = useWindowDimensions();
   const slides = React.Children.toArray(children);
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef(null);
@@ -39,7 +40,9 @@ const Onboarding = ({ children, onFinish }) => {
     }
   };
 
-  const renderItem = ({ item }) => <View style={styles.slide}>{item}</View>;
+  const renderItem = ({ item }) => (
+    <View style={[styles.slide, { width }]}>{item}</View>
+  );
 
   return (
     <View style={styles.container}>
@@ -53,16 +56,28 @@ const Onboarding = ({ children, onFinish }) => {
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={viewConfigRef.current}
         ref={flatListRef}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ alignItems: "center" }}
       />
       <View style={styles.buttonRow}>
         {currentIndex > 0 ? (
-          <Button title="Back" size="small" variant="secondary" onPress={handleBack} />
+          <Button
+            title="Back"
+            size="small"
+            variant="secondary"
+            onPress={handleBack}
+          />
         ) : (
           <View style={{ width: 80 }} />
         )}
         {currentIndex < slides.length - 1 ? (
           <>
-            <Button title="Skip" size="small" variant="outline" onPress={handleSkip} />
+            <Button
+              title="Skip"
+              size="small"
+              variant="outline"
+              onPress={handleSkip}
+            />
             <Button title="Next" size="small" onPress={handleNext} />
           </>
         ) : (
@@ -79,13 +94,13 @@ const styles = StyleSheet.create({
     paddingVertical: 48,
   },
   slide: {
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
     paddingHorizontal: 24,
   },
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: 24,
     marginTop: 24,
   },

@@ -1,62 +1,64 @@
-import React, {useEffect, useState} from 'react';
-import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
-import { useForm } from 'react-hook-form';
-import CustomForm from '@components/forms/FormInput';
-import supabase from '@config/supabase';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, SafeAreaView, Alert } from "react-native";
+import { useForm } from "react-hook-form";
+import CustomForm from "@components/forms/FormInput";
+import supabase from "@config/supabase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SignInScreen = ({ navigation }) => {
   const { control, handleSubmit, watch } = useForm({
-    mode: 'onChange',
+    mode: "onChange",
     defaultValues: {
-      email: '',
-      password: '',
-    }
+      email: "",
+      password: "",
+    },
   });
-  
+
   const [loading, setLoading] = useState(false);
   const sendDataToSupabase = async (data) => {
     setLoading(true);
     const { email, password } = data;
     const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      email,
+      password,
     });
     if (error) {
       Alert.alert(error.message);
       setLoading(false);
     } else {
-      console.log('Sign in successful', data);
-      AsyncStorage.setItem('userUuid', (await supabase.auth.getUser()).data.user.id || '');
-      navigation.replace('HomeScreen');
+      AsyncStorage.setItem(
+        "userUuid",
+        (await supabase.auth.getUser()).data.user.id || "",
+      );
+      navigation.replace("HomeScreen");
       setLoading(false);
     }
   };
 
   const formFields = [
     {
-      name: 'email',
-      label: 'Email',
-      placeholder: 'Enter your email',
-      rules: { 
-        required: 'Email is required',
+      name: "email",
+      label: "Email",
+      placeholder: "Enter your email",
+      rules: {
+        required: "Email is required",
         pattern: {
           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-          message: 'Invalid email address'
-        }
+          message: "Invalid email address",
+        },
       },
-      keyboardType: 'email-address',
+      keyboardType: "email-address",
     },
     {
-      name: 'password',
-      label: 'Password',
-      placeholder: 'Enter your password',
-      rules: { 
-        required: 'Password is required',
+      name: "password",
+      label: "Password",
+      placeholder: "Enter your password",
+      rules: {
+        required: "Password is required",
         minLength: {
           value: 6,
-          message: 'Password must be at least 6 characters'
-        }
+          message: "Password must be at least 6 characters",
+        },
       },
       secureTextEntry: true,
     },
@@ -73,9 +75,9 @@ const SignInScreen = ({ navigation }) => {
         disabled={loading}
       />
       <Text style={styles.smallText}>
-        Don't have an account?{' '}
-        <Text 
-          onPress={() => navigation.navigate('SignUpScreen')} 
+        Don't have an account?{" "}
+        <Text
+          onPress={() => navigation.navigate("SignUpScreen")}
           style={styles.smallTextBlue}
         >
           Sign Up
@@ -89,28 +91,28 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   smallText: {
     fontSize: 14,
     marginTop: 8,
-    textAlign: 'center',
+    textAlign: "center",
   },
   smallTextBlue: {
-    color: 'blue',
-    textDecorationLine: 'underline',
+    color: "blue",
+    textDecorationLine: "underline",
   },
   header: {
     fontSize: 24,
-    fontWeight: '500',
+    fontWeight: "500",
     marginBottom: 16,
-    textAlign: 'center',
+    textAlign: "center",
   },
   errorText: {
-    color: 'red',
+    color: "red",
     fontSize: 14,
     marginTop: 8,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 
