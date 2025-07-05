@@ -9,6 +9,7 @@ import VerificationScreen from "@screens/VerificationScreen";
 import ChangePasswordScreen from "@screens/ChangePasswordScreen";
 import ButtonExamples from "@screens/ButtonExamples";
 import OnboardingScreen from "@screens/OnboardingScreen";
+import ProfileScreen from "@screens/ProfileScreen";
 import supabase from "@config/supabase";
 
 
@@ -50,6 +51,7 @@ const MainNavigator = () => {
             <Stack.Screen name="VerificationScreen" component={VerificationScreen} />
             <Stack.Screen name="ButtonExamples" component={ButtonExamples} />
             <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen} />
+            <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
           </>
         ) : (
           <>
