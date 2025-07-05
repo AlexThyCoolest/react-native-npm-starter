@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Button from '@components/buttons/Button';
 import { useForm } from 'react-hook-form';
 import CustomForm from '@components/forms/FormInput';
 import supabase from '@config/supabase';
@@ -51,6 +53,11 @@ const SignUpScreen = ({ navigation }) => {
       Alert.alert('Error sending verification email', error.message);
       return;
     }
+  };
+
+  const resetOnboarding = async () => {
+    await AsyncStorage.removeItem('hasOnboarded');
+    Alert.alert('Onboarding has been reset');
   };
 
   const formFields = [
@@ -105,10 +112,17 @@ const SignUpScreen = ({ navigation }) => {
       {!isPasswordMatch && (
         <Text style={styles.errorText}>Passwords do not match!</Text>
       )}
+      <Button
+        title="Reset Onboarding"
+        variant="outline"
+        size="small"
+        onPress={resetOnboarding}
+        containerStyle={{ marginTop: 8 }}
+      />
       <Text style={styles.smallText}>
         Already have an account?{' '}
-        <Text 
-          onPress={() => navigation.navigate('SignInScreen')} 
+        <Text
+          onPress={() => navigation.navigate('SignInScreen')}
           style={styles.smallTextBlue}
         >
           Sign In
